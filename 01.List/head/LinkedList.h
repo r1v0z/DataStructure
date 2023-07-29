@@ -3,6 +3,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define FAILURE 0
+#define SUCCESS 1
+typedef int status;
 
 // 定义
 typedef struct Node
@@ -14,42 +17,32 @@ typedef struct Node
 // 1. 初始化链表
 LinkList InitList();
 
-
 // 2. 销毁链表
-void DestroyList(LinkList* list);
+status DestroyList(LinkList* list);
 
 // 3. 头插法插入
-void HeadInsertList(LinkList list, int e);
+status HeadInsertList(LinkList* list, int e);
 
 // 4. 尾插法插入
-void TailInsertList(LinkList list, int e);
+status TailInsertList(LinkList list, int e);
 
 // 5. 头删法删除
-void HeadDeleteList(LinkList list);
+status HeadDeleteList(LinkList* list);
 
 // 6. 尾删法删除
-void TailDeleteList(LinkList list);
+status TailDeleteList(LinkList* list);
 
 // 7. 按位插入 
-void InsertList(LinkList list, int pos, int e);
+status InsertList(LinkList* list, int pos, int e);
 
 // 8. 按位删除
-void DeleteList(LinkList list, int pos);
+status DeleteList(LinkList* list, int pos);
 
 // 9. 打印链表
-void PrintList(LinkList list);
+status PrintList(LinkList list);
 
-// 10. 反转链表
-void ReverseList(LinkList list);
-
-// 11. 链表排序
-void SortList(LinkList list);
-
-// 12. 删除链表中的所有指定值
-void DeleteValue(LinkList list, int e);
-
-// 13. 获取链表节点
+// 10. 按位查找
 LinkNode* GetNode(LinkList list, int pos);
 
-// 按值查找
-LinkNode* LocateElem(LinkList L, int e);
+// 11. 按值查找
+LinkNode* LocateElem(LinkList list, int e);

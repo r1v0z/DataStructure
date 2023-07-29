@@ -2,21 +2,47 @@
 
 int main(void)
 {
-    LinkNode* node = NULL;
     LinkList list = InitList();
-    HeadInsertList(list, 17);
-    HeadInsertList(list, 42);
-    HeadInsertList(list, 32);
-    HeadInsertList(list, 46);
-    HeadInsertList(list, 5);
-    TailInsertList(list, 17);
-    TailInsertList(list, 17);
+    LinkList* Plist = &list;
+    HeadInsertList(Plist, 1);
+    HeadInsertList(Plist, 2);
+    HeadInsertList(Plist, 3);
+    HeadInsertList(Plist, 4);
+    HeadInsertList(Plist, 5);
     PrintList(list);
-    DestroyList(&list);
 
-    if(list == NULL)
-        printf("list is NULL\n");
-    else
-        printf("list is Not NULL\n");
+    TailInsertList(list, 6);
+    TailInsertList(list, 7);
+    TailInsertList(list, 8);
+    TailInsertList(list, 9);
+    TailInsertList(list, 10);
+    PrintList(list);
+
+    HeadDeleteList(Plist);
+    PrintList(list);
+    TailDeleteList(Plist);
+    PrintList(list);
+
+    InsertList(Plist, 3, 10);
+    PrintList(list);
+
+    InsertList(Plist, 4, 20);
+    PrintList(list);
+
+    InsertList(Plist, 2, 30);
+    PrintList(list);
+
+    InsertList(Plist, 5, 40);
+    PrintList(list);
+    printf("----------------\n");
+    DeleteList(Plist, 1);
+    DeleteList(Plist, 13);
+    DeleteList(Plist, 3);
+    PrintList(list);
+
+
+
+    DestroyList(Plist);
+    // PrintList(list);
     return EXIT_SUCCESS;
 }
