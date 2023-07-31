@@ -177,3 +177,19 @@ LinkNode* LocateElem(LinkList list, int e)
 
     return list;
 }
+
+// 求表长
+int Length(LinkList list)
+{
+    if(list == NULL)
+        return 0;
+
+    int count = 1;
+    while (list)
+    {
+        list = list->next;
+        count++;
+    }
+    
+    return count;
+}

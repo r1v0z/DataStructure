@@ -46,3 +46,6 @@ LinkNode* GetNode(LinkList list, int pos);
 
 // 11. 按值查找
 LinkNode* LocateElem(LinkList list, int e);
+
+// 12. 求表长
+int Length(LinkList list);
