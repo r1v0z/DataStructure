@@ -1,76 +1,40 @@
-#include "./head/DLinkList.h"
+#include "./head/LoopLinkList.h"
 
 int main(void)
 {
-    DList list = InitList();
-    DList* PList = &list;
+    LinkList list = InitList();
+    LinkList* Plist = &list;
 
-    HeadInsertList(PList, 1);
-    HeadInsertList(PList, 2);
-    HeadInsertList(PList, 3);
-    HeadInsertList(PList, 4);
-    HeadInsertList(PList, 5);
+    HeadInsertList(Plist, 1);
+    HeadInsertList(Plist, 2);
+    HeadInsertList(Plist, 3);
+    HeadInsertList(Plist, 4);
+    HeadInsertList(Plist, 5);
     PrintList(list);
-    TailInsertList(PList, 6);
-    TailInsertList(PList, 7);
-    TailInsertList(PList, 8);
-    TailInsertList(PList, 9);
-    TailInsertList(PList, 10);
+    TailInsertList(Plist, 6);
+    TailInsertList(Plist, 7);
+    TailInsertList(Plist, 8);
+    TailInsertList(Plist, 9);
+    TailInsertList(Plist, 10);
     PrintList(list);
-    InsertList(PList, 3, 100);
-
-    InsertList(PList, 1, 101);
-    InsertList(PList, 12, 201);
+    InsertList(Plist, 1, 100);
+    InsertList(Plist, 12, 200);
+    InsertList(Plist, 7, 300);
     PrintList(list);
-
-    InsertList(PList, 14, 11);
+    HeadDeleteList(Plist);
+    HeadDeleteList(Plist);
     PrintList(list);
-
-    HeadDeleteList(PList);
+    TailDeleteList(Plist);
+    TailDeleteList(Plist);
     PrintList(list);
-    TailDeleteList(PList);
-    PrintList(list);
-
-    DeleteList(PList, 1);
+    DeleteList(Plist, 1);
+    DeleteList(Plist, 3);
+    DeleteList(Plist, 7);
     PrintList(list);
 
-    DeleteList(PList, 5);
-    PrintList(list);
-    DeleteList(PList, 10);
-    PrintList(list);
-
-    DNode* node = NULL;
-    node = GetNode(list, 5);
-    printf("node->data: %d\n", node->data);
-    node = GetNode(list, 9);
-    printf("node->data: %d\n", node->data);
-
-    node = GetNode(list, 20);
-    if(node != NULL)
-        printf("node->data: %d\n", node->data);
-    else
-        printf("node is NULL!\n");
 
 
-    node = LocateElem(list, 4);
-    printf("node->data: %d\n", node->data);
-    node = LocateElem(list, 201);
-    printf("node->data: %d\n", node->data);
-    node = LocateElem(list, 6);
-    printf("node->data: %d\n", node->data);   
-
-    PrintList(list);
-    int len = Length(list);
-    printf("len: %d\n", len);
-
-
-
-    DestroyList(PList);
-    if (list == NULL)
-    {
-        printf("list is NULL\n");
-    }
-    
+    DestroyList(Plist);
 
     return EXIT_SUCCESS;
 }

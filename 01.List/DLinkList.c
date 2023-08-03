@@ -27,7 +27,9 @@ status HeadInsertList(DList* list, int e)
 {
     DNode* node = (DNode*)malloc(sizeof(DNode));
     if(node == NULL)
+    {
         return EXIT_FAILURE;
+    }
     
     if((*list) != NULL)
         (*list)->pre = node;
@@ -44,7 +46,9 @@ status HeadInsertList(DList* list, int e)
 status TailInsertList(DList* list, int e)
 {
     DNode* cur = (*list);
-    while((*list) != NULL && cur->next != NULL)
+    
+    //判断的顺序不能交换，不然会出错
+    while((*list) != NULL && cur->next != NULL)	
     {
         cur = cur->next;
     }
@@ -104,6 +108,14 @@ status HeadDeleteList(DList* list)
     if((*list) == NULL)
         return EXIT_FAILURE;
 
+    // 判断链表是否只有一个节点，第一个节点的下一个节点为NULL，表示链表中只有一个节点
+    if((*list)->next == NULL)
+    {
+        free(*list);
+        *list = NULL;
+        return EXIT_SUCCESS;
+    }
+    
     (*list) = (*list)->next;
     free((*list)->pre);
     (*list)->pre = NULL;
@@ -120,6 +132,7 @@ status TailDeleteList(DList* list)
     while (cur->next != NULL)
         cur = cur->next;
 
+    // 判断是否只有一个节点，当最后一个节点的前一节点为NULL，表示当前链表只有一个节点
     if(cur->pre != NULL)
         cur->pre->next = NULL;
 
@@ -198,7 +211,7 @@ DNode* LocateElem(DList list, int e)
 }
 
 // 12. 求表长
-int Length(DList list)
+int* Length(DList list)
 {
     if(list == NULL)
         return 0;
