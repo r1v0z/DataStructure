@@ -1,11 +1,10 @@
-#include "./head/seqStack.h"
+#include "./head/StackList.h"
 
 int main(void)
 {
-    Stack s;
-    Stack* ps = &s;
+    StackList s = Init();
+    StackList* ps = &s;
     int e = 0;
-    Init(ps);
     if(isEmpty(ps))
         printf("stack is Empty!\n");
 
